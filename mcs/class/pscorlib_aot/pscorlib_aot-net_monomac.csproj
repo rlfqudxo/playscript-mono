@@ -9,6 +9,7 @@
     <OutputType>Library</OutputType>
     <RootNamespace>_root</RootNamespace>
     <AssemblyName>pscorlib_monomac</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>True</DebugSymbols>
@@ -870,9 +871,9 @@
     <Folder Include="Telemetry\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\PlayScript.Dynamic_aot\PlayScript.Dynamic_aot-net_4_0.csproj">
+    <ProjectReference Include="..\PlayScript.Dynamic_aot\PlayScript.Dynamic_aot-net.csproj">
       <Project>{0BACBE20-34DD-4E24-8B91-87970E8A23B9}</Project>
-      <Name>PlayScript.Dynamic_aot-net_4_0</Name>
+      <Name>PlayScript.Dynamic_aot-net</Name>
     </ProjectReference>
   </ItemGroup>
 </Project>
