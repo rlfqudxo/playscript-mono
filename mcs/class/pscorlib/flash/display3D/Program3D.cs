@@ -122,9 +122,6 @@ namespace flash.display3D {
 				Console.WriteLine (fragmentShaderSource);
 			}
 
-			mVertexSource = vertexShaderSource;
-			mFragmentSource = fragmentShaderSource;
-			
 			// compiler vertex shader
 			mVertexShaderId = GL.CreateShader (ShaderType.VertexShader);
 			GL.ShaderSource (mVertexShaderId, vertexShaderSource);
@@ -339,9 +336,6 @@ namespace flash.display3D {
 		private int 			   mVertexShaderId = 0;
 		private int 			   mFragmentShaderId = 0;
 		private int 			   mProgramId = 0;
-
-		private string 			   mVertexSource;
-		private string 			   mFragmentSource;
 
 		// uniform lookup tables
 		private List<Uniform>	   mUniforms = new List<Uniform>();
