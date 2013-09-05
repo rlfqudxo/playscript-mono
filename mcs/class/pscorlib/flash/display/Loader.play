@@ -50,7 +50,7 @@ package flash.display {
 		public function load(request:URLRequest, context:LoaderContext = null):void {
 
 			mRequest = request;
-			mContext = context;
+//			mContext = context;
 
 //			mUrlLoader = new URLLoader();
 //			mUrlLoader.dataFormat = URLLoaderDataFormat.BINARY;
@@ -133,8 +133,8 @@ package flash.display {
 		var mContent:DisplayObject = null;
 		var mLoaderInfo:LoaderInfo = new LoaderInfo();
 		var mRequest:URLRequest = null;
-		var mContext:LoaderContext = null;
-		var mUrlLoader:URLLoader = null;
+//		var mContext:LoaderContext = null;
+//		var mUrlLoader:URLLoader = null;
 	
 	}
 
