@@ -934,7 +934,6 @@ namespace Mono.PlayScript
 			case Token.FUNCTION:
 				parsing_modifiers = false;
 				this.AutoSemiInsertion = false;
-				bool is_get_set = false;
 				PushPosition();
 				var fn_token = token ();
 				if (fn_token == Token.IDENTIFIER)
@@ -1312,8 +1311,8 @@ namespace Mono.PlayScript
 			current_token_line = 0;
 
 			int bracket_level = 0;
-			bool is_type = false;
-			bool can_be_type = false;
+//			bool is_type = false;
+//			bool can_be_type = false;
 			
 			while (true) {
 				ptoken = current_token;
@@ -1392,21 +1391,21 @@ namespace Mono.PlayScript
 				case Token.IDENTIFIER:
 					switch (ptoken) {
 					case Token.DOT:
-						if (bracket_level == 0) {
-							is_type = false;
-							can_be_type = true;
-						}
+//						if (bracket_level == 0) {
+//							is_type = false;
+//							can_be_type = true;
+//						}
 
 						continue;
 					case Token.OP_GENERICS_LT:
 					case Token.COMMA:
 					case Token.DOUBLE_COLON:
 					case -1:
-						if (bracket_level == 0)
-							can_be_type = true;
+//						if (bracket_level == 0)
+//							can_be_type = true;
 						continue;
 					default:
-						can_be_type = is_type = false;
+//						can_be_type = is_type = false;
 						continue;
 					}
 
@@ -1426,21 +1425,22 @@ namespace Mono.PlayScript
 				case Token.ULONG:
 				case Token.CHAR:
 				case Token.VOID:
-					if (bracket_level == 0)
-						is_type = true;
+//					if (bracket_level == 0)
+//						is_type = true;
 					continue;
 
 				case Token.COMMA:
 					if (bracket_level == 0) {
 						bracket_level = 100;
-						can_be_type = is_type = false;
+//						can_be_type = is_type = false;
 					}
 					continue;
 
 				case Token.OP_GENERICS_LT:
 				case Token.OPEN_BRACKET:
-					if (bracket_level++ == 0)
-						is_type = true;
+					if (bracket_level++ == 0) {
+//						is_type = true;
+					}
 					continue;
 
 				case Token.OP_GENERICS_GT:
@@ -1450,13 +1450,13 @@ namespace Mono.PlayScript
 
 				case Token.INTERR_NULLABLE:
 				case Token.STAR:
-					if (bracket_level == 0)
-						is_type = true;
+//					if (bracket_level == 0)
+//						is_type = true;
 					continue;
 
 				case Token.REF:
 				case Token.OUT:
-					can_be_type = is_type = false;
+//					can_be_type = is_type = false;
 					continue;
 
 				default:
