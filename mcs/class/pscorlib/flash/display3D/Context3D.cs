@@ -100,8 +100,6 @@ namespace flash.display3D {
 
 		public Context3D(Stage3D stage3D)
 		{
-			mStage3D = stage3D;
-
 			// get default framebuffer for use when restoring rendering to backbuffer
 			GL.GetInteger(GetPName.FramebufferBinding, out mDefaultFrameBufferId);
 
@@ -139,9 +137,6 @@ namespace flash.display3D {
 			// $$TODO allow for resizing of frame buffer here
 			mBackBufferWidth = width;
 			mBackBufferHeight = height;
-			mBackBufferAntiAlias = antiAlias;
-			mBackBufferEnableDepthAndStencil = enableDepthAndStencil;
-			mBackBufferWantsBestResolution = wantsBestResolution;
 
 			#if PLATFORM_MONOTOUCH
 
@@ -534,8 +529,6 @@ namespace flash.display3D {
 			if (mProgram != null) {
 				mProgram.SetPositionScale(mPositionScale);
 			}
-			// clear render to texture
-			mRenderToTexture = null;
 		}
  	 	
 		public void setRenderToTexture(TextureBase texture, bool enableDepthAndStencil = false, int antiAlias = 0, 
@@ -566,9 +559,6 @@ namespace flash.display3D {
 			if (mProgram != null) {
 				mProgram.SetPositionScale(mPositionScale);
 			}
-
-			// save texture we're rendering to
-			mRenderToTexture = texture;
 		}
 
 		public void setSamplerStateAt(int sampler, string wrap, string filter, string mipfilter)
@@ -691,9 +681,6 @@ namespace flash.display3D {
 
 		}
 
-		// stage3D that owns us
-		private readonly Stage3D mStage3D;
-
 		// temporary floating point array for constant conversion
 		private readonly float[] mTemp = new float[4 * 1024];
 	
@@ -709,15 +696,10 @@ namespace flash.display3D {
 
 		// settings for backbuffer
 		private int  mDefaultFrameBufferId;
-		private int  mDepthRenderBufferId;
 		private int  mBackBufferWidth = 0;
 		private int  mBackBufferHeight = 0;
-		private int  mBackBufferAntiAlias = 0;
-		private bool mBackBufferEnableDepthAndStencil = true;
-		private bool mBackBufferWantsBestResolution = false;
 
 		// settings for render to texture
-		private TextureBase mRenderToTexture = null;
 		private int  		mTextureFrameBufferId;
 
 #else
