@@ -42,11 +42,7 @@ namespace flash.display3D.textures
 		               bool optimizeForRenderToTexture, int streamingLevels)
 			: base(TextureTarget.TextureCubeMap)
 		{
-			mContext = context;
 			mSize = size;
-			mFormat = format;
-			mOptimizeForRenderToTexture = optimizeForRenderToTexture;
-			mStreamingLevels = streamingLevels;
 		}
 
 		public void uploadCompressedTextureFromByteArray(ByteArray data, uint byteArrayOffset, bool async = false) {
@@ -103,11 +99,7 @@ namespace flash.display3D.textures
 		public int height 	{ get { return mSize; } }
 		
 		
-		private readonly Context3D 	mContext;
 		private readonly int 		mSize;
-		private readonly string 	mFormat;
-		private readonly bool 		mOptimizeForRenderToTexture;
-		private readonly int    	mStreamingLevels;
 
 		#else
 		public void uploadCompressedTextureFromByteArray(ByteArray data, uint byteArrayOffset, bool async = false) {
