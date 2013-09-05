@@ -45,12 +45,8 @@ namespace flash.display3D.textures {
 		                        bool optimizeForRenderToTexture, int streamingLevels)
 			: base(TextureTarget.Texture2D)
 		{
-			mContext = context;
 			mWidth = width;
 			mHeight = height;
-			mFormat = format;
-			mOptimizeForRenderToTexture = optimizeForRenderToTexture;
-			mStreamingLevels = streamingLevels;
 
 			// we do this to clear the texture on creation
 			// $$TODO we dont need to allocate a bitmapdata to do this, we should just use a PBO and clear it
@@ -268,12 +264,8 @@ namespace flash.display3D.textures {
 		public int height 	{ get { return mHeight; } }
 		
 		
-		private readonly Context3D 	mContext;
 		private readonly int 		mWidth;
 		private readonly int 		mHeight;
-		private readonly string 	mFormat;
-		private readonly bool 		mOptimizeForRenderToTexture;
-		private readonly int    	mStreamingLevels;
 
 #else
 
