@@ -44,7 +44,6 @@ namespace _root
 
 		public virtual bool hasOwnProperty(object v = null)
 		{
-			var t = GetType ();
 			var name = v as string;
 			
 			if (name != null) {
