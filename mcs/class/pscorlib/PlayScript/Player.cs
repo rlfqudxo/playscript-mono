@@ -461,7 +461,9 @@ namespace PlayScript
 		public void OnTouchesEnded (List<flash.events.TouchEvent> touches)
 		{
 			mSpanPlayerTouch.Begin();
+#if PLATFORM_MONOTOUCH
 			mMouseDown = false;
+#endif
 
 			foreach (flash.events.TouchEvent touch in touches) {
 
@@ -691,7 +693,9 @@ namespace PlayScript
 		private int   mFrameCount;
 		private bool  mApplicationLoaded;
 		private bool mDeactivateMouseEvents = false;
+#if PLATFORM_MONOTOUCH
 		private bool mMouseDown = false;
+#endif
 		private bool mSkipNextMouseUp = false;
 
 		private static List<string> sResourceDirectories = new List<string>();
@@ -702,7 +706,9 @@ namespace PlayScript
 		private readonly Telemetry.Span mSpanPlayerMouseUp = new Telemetry.Span(".player.mouse.up");
 		private readonly Telemetry.Span mSpanPlayerMouseMove = new Telemetry.Span(".player.mouse.move");
 		private readonly Telemetry.Span mSpanPlayerTouch = new Telemetry.Span(".player.touch");
+#if PLATFORM_MONOTOUCH
 		private readonly Telemetry.Span mSpanPlayerGesture = new Telemetry.Span(".player.gesture");
+#endif
 	}
 }
 		
